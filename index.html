@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radha Krishna Divine Experience</title>
+    <title>राधा कृष्ण दिव्य अनुभव</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Hind+Siliguri:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -136,6 +136,7 @@
         }
         
         .quote {
+            font-family: 'Hind Siliguri', sans-serif;
             font-size: 1.8rem;
             line-height: 1.6;
             margin-bottom: 1.5rem;
@@ -394,19 +395,19 @@
             <h1 class="radhe-text">राधे राधे</h1>
             
             <div class="name-form">
-                <h2>Enter Your Name for a Divine Blessing</h2>
+                <h2>अपना नाम दर्ज करें एक दिव्य आशीर्वाद के लिए</h2>
                 <div class="form-group">
-                    <input type="text" id="userName" placeholder="Your Beautiful Name">
+                    <input type="text" id="userName" placeholder="आपका सुंदर नाम">
                 </div>
-                <button onclick="showBlessing()">Receive Blessing</button>
+                <button onclick="showBlessing()">आशीर्वाद प्राप्त करें</button>
             </div>
         </div>
         
         <!-- Result Screen -->
         <div class="result-screen" id="resultScreen">
             <div class="quote-container">
-                <p class="quote" id="blessingText">Your blessing will appear here...</p>
-                <p class="verse">- Bhagavad Gita</p>
+                <p class="quote" id="blessingText">आपका आशीर्वाद यहाँ प्रकट होगा...</p>
+                <p class="verse">- भगवद गीता</p>
             </div>
             
             <div class="image-container">
@@ -422,7 +423,7 @@
                 <div class="play-button" id="playButton" onclick="toggleAudio()">
                     <i>▶</i>
                 </div>
-                <div class="audio-status" id="audioStatus">Click to play Radhe Radhe sound</div>
+                <div class="audio-status" id="audioStatus">राधे राधे ध्वनि चलाने के लिए क्लिक करें</div>
                 <audio id="radheAudio" loop>
                     <!-- In a real implementation, you would add an actual audio file here -->
                     <!-- <source src="radhe-radhe.mp3" type="audio/mpeg"> -->
@@ -431,34 +432,39 @@
                 </audio>
             </div>
             
-            <!-- Additional content to enable scrolling -->
+            <!-- Additional content with Hindi thoughts -->
             <div class="additional-content">
                 <div class="quote-container">
-                    <p class="quote">"The soul is eternal, all-pervading, unmodifiable, immovable and primordial."</p>
-                    <p class="verse">- Bhagavad Gita 2.24</p>
+                    <p class="quote">"आत्मा न तो जन्म लेती है और न मरती है। यह अनजान, शाश्वत, सदा विद्यमान और आदिम है। शरीर के मारे जाने पर यह नहीं मारा जाता।"</p>
+                    <p class="verse">- भगवद गीता 2.20</p>
                 </div>
                 
                 <div class="quote-container">
-                    <p class="quote">"One who sees inaction in action, and action in inaction, is intelligent among men."</p>
-                    <p class="verse">- Bhagavad Gita 4.18</p>
+                    <p class="quote">"जो व्यक्ति इंद्रिय विषयों के बीच चलता फिरता है, जो आसक्ति या विकर्षण से मुक्त है, वह शाश्वत शांति प्राप्त करता है।"</p>
+                    <p class="verse">- भगवद गीता 2.64</p>
+                </div>
+
+                <div class="quote-container">
+                    <p class="quote">"मनुष्य को चाहिए कि वह अपने कर्म पर ध्यान दे, न कि उसके फल पर। कर्म फल के लिए मत करो, लेकिन कर्म करना कभी मत छोड़ो।"</p>
+                    <p class="verse">- भगवद गीता 2.47</p>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Array of beautiful Bhagavad Gita thoughts
+        // Array of beautiful Bhagavad Gita thoughts in Hindi
         const gitaThoughts = [
-            "The soul is neither born, and nor does it die. It is unborn, eternal, ever-existing and primeval. It is not slain when the body is slain.",
-            "Set thy heart upon thy work, but never on its reward. Work not for a reward; but never cease to do thy work.",
-            "The mind is restless and difficult to restrain, but it is subdued by practice and detachment.",
-            "When a man thinks of the objects, attachment to them arises; from attachment desire is born; from desire anger arises.",
-            "The self-controlled soul, who moves amongst sense objects, free from either attachment or repulsion, he wins eternal peace.",
-            "Perform your obligatory duty, because action is indeed better than inaction.",
-            "One who has control over the mind is tranquil in heat and cold, in pleasure and pain, and in honor and dishonor.",
-            "The soul can never be cut to pieces by any weapon, nor burned by fire, nor moistened by water, nor withered by the wind.",
-            "Those who are free from anger and all material desires, who are self-realized, self-disciplined and constantly endeavoring for perfection, are assured of liberation in the Supreme.",
-            "The wise see that there is action in the midst of inaction and inaction in the midst of action."
+            "आत्मा न तो जन्म लेती है और न मरती है। यह अनजान, शाश्वत, सदा विद्यमान और आदिम है। शरीर के मारे जाने पर यह नहीं मारा जाता।",
+            "अपने काम पर ध्यान दो, लेकिन कभी भी उसके इनाम पर नहीं। इनाम के लिए काम मत करो; लेकिन अपना काम करना कभी बंद मत करो।",
+            "मन अशांत और नियंत्रित करने में कठिन है, लेकिन इसे अभ्यास और वैराग्य से वश में किया जाता है।",
+            "जब कोई व्यक्ति वस्तुओं के बारे में सोचता है, तो उनके प्रति लगाव पैदा होता है; लगाव से इच्छा पैदा होती है; इच्छा से क्रोध पैदा होता है।",
+            "आत्म-नियंत्रित आत्मा, जो इंद्रिय विषयों के बीच चलती है, जो लगाव या विकर्षण से मुक्त है, वह शाश्वत शांति प्राप्त करती है।",
+            "अपने अनिवार्य कर्तव्य का पालन करें, क्योंकि कार्य वास्तव में निष्क्रियता से बेहतर है।",
+            "जिसका मन पर नियंत्रण है, वह गर्मी और सर्दी, सुख और दर्द, और सम्मान और अपमान में शांत रहता है।",
+            "आत्मा को किसी भी हथियार से कभी काटा नहीं जा सकता, न आग से जलाया जा सकता है, न पानी से गीला किया जा सकता है, न हवा से सूखा जा सकता है।",
+            "जो क्रोध और सभी भौतिक इच्छाओं से मुक्त हैं, जो आत्म-साक्षात्कारित, आत्म-अनुशासित और पूर्णता के लिए निरंतर प्रयास कर रहे हैं, वे सर्वोच्च में मुक्ति के लिए आश्वस्त हैं।",
+            "बुद्धिमान देखते हैं कि निष्क्रियता के बीच में कार्य और कार्य के बीच में निष्क्रियता है।"
         ];
         
         // Audio elements
@@ -499,15 +505,15 @@
             if (isPlaying) {
                 audio.pause();
                 playButton.innerHTML = '<i>▶</i>';
-                audioStatus.textContent = 'Play Radhe Radhe sound';
+                audioStatus.textContent = 'राधे राधे ध्वनि चलाने के लिए क्लिक करें';
                 document.querySelector('.audio-controls').classList.remove('playing');
             } else {
                 audio.play().catch(e => {
                     console.log('Audio play failed:', e);
-                    audioStatus.textContent = 'Click to allow audio playback';
+                    audioStatus.textContent = 'ध्वनि चलाने की अनुमति देने के लिए क्लिक करें';
                 });
                 playButton.innerHTML = '<i>⏸</i>';
-                audioStatus.textContent = 'Playing Radhe Radhe...';
+                audioStatus.textContent = 'राधे राधे ध्वनि चल रही है...';
                 document.querySelector('.audio-controls').classList.add('playing');
             }
             isPlaying = !isPlaying;
@@ -518,7 +524,7 @@
             const userName = document.getElementById('userName').value.trim();
             
             if (userName === '') {
-                alert('Please enter your name to receive the divine blessing.');
+                alert('कृपया दिव्य आशीर्वाद प्राप्त करने के लिए अपना नाम दर्ज करें।');
                 return;
             }
             
@@ -530,7 +536,7 @@
             const randomThought = gitaThoughts[Math.floor(Math.random() * gitaThoughts.length)];
             
             // Create personalized blessing
-            const blessing = `Dear ${userName}, ${randomThought}`;
+            const blessing = `प्रिय ${userName}, ${randomThought}`;
             
             // Display the blessing with typing animation
             const blessingElement = document.getElementById('blessingText');
@@ -563,13 +569,13 @@
             audio.addEventListener('ended', function() {
                 isPlaying = false;
                 playButton.innerHTML = '<i>▶</i>';
-                audioStatus.textContent = 'Play Radhe Radhe sound';
+                audioStatus.textContent = 'राधे राधे ध्वनि चलाने के लिए क्लिक करें';
                 document.querySelector('.audio-controls').classList.remove('playing');
             });
             
             // Handle audio loading errors
             audio.addEventListener('error', function() {
-                audioStatus.textContent = 'Audio not available. Please try again later.';
+                audioStatus.textContent = 'ध्वनि उपलब्ध नहीं है। कृपया बाद में पुनः प्रयास करें।';
             });
         });
     </script>
