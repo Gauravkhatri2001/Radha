@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radha Krishna Divine Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Hind+Siliguri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, #1a0033 0%, #330033 100%);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            perspective: 1000px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .welcome-screen {
+            text-align: center;
+            animation: fadeIn 2s ease-out;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .radhe-text {
+            font-family: 'Hind Siliguri', sans-serif;
+            font-size: 8rem;
+            font-weight: 700;
+            color: #ffcc00;
+            text-shadow: 0 0 20px rgba(255, 204, 0, 0.7);
+            margin-bottom: 2rem;
+            transform: translateZ(50px);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .name-form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            max-width: 500px;
+            width: 90%;
+            animation: scaleUp 1s ease-out;
+            margin-bottom: 2rem;
+        }
+        
+        .name-form h2 {
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            color: #ffcc00;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        input {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        input:focus {
+            outline: none;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.5);
+        }
+        
+        button {
+            background: linear-gradient(135deg, #ffcc00 0%, #ff9900 100%);
+            color: #330033;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 204, 0, 0.4);
+        }
+        
+        .result-screen {
+            text-align: center;
+            display: none;
+            animation: fadeIn 2s ease-out;
+            width: 100%;
+            padding: 40px 0;
+        }
+        
+        .quote-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            max-width: 800px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            transform-style: preserve-3d;
+            transform: translateZ(30px);
+        }
+        
+        .quote {
+            font-size: 1.8rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            color: #ffcc00;
+        }
+        
+        .verse {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #ff99cc;
+        }
+        
+        .image-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            height: 500px;
+            margin: 2rem 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            transform-style: preserve-3d;
+            transform: perspective(1000px) rotateY(5deg) rotateX(5deg);
+            transition: transform 0.5s ease;
+        }
+        
+        .image-container:hover {
+            transform: perspective(1000px) rotateY(0) rotateX(0);
+        }
+        
+        .krishna-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            transition: transform 0.5s ease;
+        }
+        
+        .image-container:hover .krishna-image {
+            transform: scale(1.05);
+        }
+        
+        .audio-controls {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .play-button {
+            background: linear-gradient(135deg, #ff66cc 0%, #cc00cc 100%);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(204, 0, 204, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .play-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(204, 0, 204, 0.6);
+        }
+        
+        .play-button i {
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .playing .play-button {
+            background: linear-gradient(135deg, #cc00cc 0%, #ff66cc 100%);
+        }
+        
+        .audio-status {
+            font-size: 1.2rem;
+            color: #ff99cc;
+            margin-top: 10px;
+        }
+        
+        /* Falling Radha Text Animation */
+        .falling-text-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .falling-text {
+            position: absolute;
+            font-family: 'Hind Siliguri', sans-serif;
+            font-size: 2rem;
+            color: rgba(255, 204, 0, 0.7);
+            animation: fallDown 10s linear infinite;
+        }
+        
+        /* 3D Animation Elements */
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 204, 0, 0.1);
+            border-radius: 50%;
+            animation: floatAround 15s infinite linear;
+        }
+        
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            width: 120px;
+            height: 120px;
+            animation-duration: 20s;
+            background: radial-gradient(circle, rgba(255, 204, 0, 0.2) 0%, rgba(255, 204, 0, 0) 70%);
+        }
+        
+        .floating-element:nth-child(2) {
+            top: 60%;
+            left: 80%;
+            width: 80px;
+            height: 80px;
+            animation-duration: 25s;
+            background: radial-gradient(circle, rgba(255, 102, 204, 0.2) 0%, rgba(255, 102, 204, 0) 70%);
+        }
+        
+        .floating-element:nth-child(3) {
+            top: 40%;
+            left: 70%;
+            width: 150px;
+            height: 150px;
+            animation-duration: 30s;
+            background: radial-gradient(circle, rgba(102, 204, 255, 0.2) 0%, rgba(102, 204, 255, 0) 70%);
+        }
+        
+        .floating-element:nth-child(4) {
+            top: 80%;
+            left: 20%;
+            width: 100px;
+            height: 100px;
+            animation-duration: 18s;
+            background: radial-gradient(circle, rgba(204, 102, 255, 0.2) 0%, rgba(204, 102, 255, 0) 70%);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes scaleUp {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) translateZ(50px); }
+            50% { transform: translateY(-20px) translateZ(50px); }
+            100% { transform: translateY(0) translateZ(50px); }
+        }
+        
+        @keyframes floatAround {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(50px, 50px) rotate(90deg); }
+            50% { transform: translate(100px, 0) rotate(180deg); }
+            75% { transform: translate(50px, -50px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+        
+        @keyframes fallDown {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .radhe-text {
+                font-size: 5rem;
+            }
+            
+            .quote {
+                font-size: 1.5rem;
+            }
+            
+            .image-container {
+                height: 350px;
+            }
+            
+            .falling-text {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .radhe-text {
+                font-size: 4rem;
+            }
+            
+            .name-form {
+                padding: 1.5rem;
+            }
+            
+            .quote-container {
+                padding: 1.5rem;
+            }
+            
+            .quote {
+                font-size: 1.3rem;
+            }
+            
+            .image-container {
+                height: 280px;
+            }
+            
+            .falling-text {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Falling Radha Text Animation -->
+    <div class="falling-text-container" id="fallingTextContainer"></div>
+    
+    <!-- 3D Background Elements -->
+    <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+    </div>
+    
+    <div class="container">
+        <!-- Welcome Screen -->
+        <div class="welcome-screen" id="welcomeScreen">
+            <h1 class="radhe-text">राधे राधे</h1>
+            
+            <div class="name-form">
+                <h2>Enter Your Name for a Divine Blessing</h2>
+                <div class="form-group">
+                    <input type="text" id="userName" placeholder="Your Beautiful Name">
+                </div>
+                <button onclick="showBlessing()">Receive Blessing</button>
+            </div>
+        </div>
+        
+        <!-- Result Screen -->
+        <div class="result-screen" id="resultScreen">
+            <div class="quote-container">
+                <p class="quote" id="blessingText">Your blessing will appear here...</p>
+                <p class="verse">- Bhagavad Gita</p>
+            </div>
+            
+            <div class="image-container">
+                <div class="image-collage">
+                    <img src="Redha.png" alt="Radha Krishna" class="krishna-image">
+                    <img src="Redha 2.png" alt="Radha 2" class="collage-image" style="position:absolute; top:20px; right:20px; width:120px; height:120px; border:2px solid #ffcc00; border-radius:10px;">
+                    <img src="Redha 3.png" alt="Radha 3" class="collage-image" style="position:absolute; bottom:20px; left:20px; width:100px; height:100px; border:2px solid #ff66cc; border-radius:50%;">
+                    <img src="Redha 5.png" alt="Radha 5" class="collage-image" style="position:absolute; bottom:20px; right:20px; width:110px; height:110px; border:2px solid #99ffff; border-radius:10px;">
+                </div>
+            </div>
+            
+            <div class="audio-controls">
+                <div class="play-button" id="playButton" onclick="toggleAudio()">
+                    <i>▶</i>
+                </div>
+                <div class="audio-status" id="audioStatus">Click to play Radhe Radhe sound</div>
+                <audio id="radheAudio" loop>
+                    <!-- In a real implementation, you would add an actual audio file here -->
+                    <!-- <source src="radhe-radhe.mp3" type="audio/mpeg"> -->
+                    <!-- For demonstration, we'll use a silent audio -->
+                    <source src="Shri Radha Naam Dhun (PenduJatt.Com.Se).mp3" type="audio/mpeg">
+                </audio>
+            </div>
+            
+            <!-- Additional content to enable scrolling -->
+            <div class="additional-content">
+                <div class="quote-container">
+                    <p class="quote">"The soul is eternal, all-pervading, unmodifiable, immovable and primordial."</p>
+                    <p class="verse">- Bhagavad Gita 2.24</p>
+                </div>
+                
+                <div class="quote-container">
+                    <p class="quote">"One who sees inaction in action, and action in inaction, is intelligent among men."</p>
+                    <p class="verse">- Bhagavad Gita 4.18</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Array of beautiful Bhagavad Gita thoughts
+        const gitaThoughts = [
+            "The soul is neither born, and nor does it die. It is unborn, eternal, ever-existing and primeval. It is not slain when the body is slain.",
+            "Set thy heart upon thy work, but never on its reward. Work not for a reward; but never cease to do thy work.",
+            "The mind is restless and difficult to restrain, but it is subdued by practice and detachment.",
+            "When a man thinks of the objects, attachment to them arises; from attachment desire is born; from desire anger arises.",
+            "The self-controlled soul, who moves amongst sense objects, free from either attachment or repulsion, he wins eternal peace.",
+            "Perform your obligatory duty, because action is indeed better than inaction.",
+            "One who has control over the mind is tranquil in heat and cold, in pleasure and pain, and in honor and dishonor.",
+            "The soul can never be cut to pieces by any weapon, nor burned by fire, nor moistened by water, nor withered by the wind.",
+            "Those who are free from anger and all material desires, who are self-realized, self-disciplined and constantly endeavoring for perfection, are assured of liberation in the Supreme.",
+            "The wise see that there is action in the midst of inaction and inaction in the midst of action."
+        ];
+        
+        // Audio elements
+        const audio = document.getElementById('radheAudio');
+        const playButton = document.getElementById('playButton');
+        const audioStatus = document.getElementById('audioStatus');
+        let isPlaying = false;
+        
+        // Create falling Radha text
+        function createFallingText() {
+            const container = document.getElementById('fallingTextContainer');
+            const text = document.createElement('div');
+            text.className = 'falling-text';
+            text.textContent = 'राधा';
+            text.style.left = Math.random() * 100 + 'vw';
+            text.style.animationDuration = (Math.random() * 10 + 5) + 's';
+            text.style.fontSize = (Math.random() * 20 + 20) + 'px';
+            text.style.opacity = Math.random() * 0.5 + 0.3;
+            
+            container.appendChild(text);
+            
+            // Remove text after animation completes
+            setTimeout(() => {
+                text.remove();
+            }, 15000);
+        }
+        
+        // Generate falling text periodically
+        setInterval(createFallingText, 500);
+        
+        // Initial falling texts
+        for (let i = 0; i < 20; i++) {
+            setTimeout(createFallingText, i * 200);
+        }
+        
+        // Function to toggle audio playback
+        function toggleAudio() {
+            if (isPlaying) {
+                audio.pause();
+                playButton.innerHTML = '<i>▶</i>';
+                audioStatus.textContent = 'Play Radhe Radhe sound';
+                document.querySelector('.audio-controls').classList.remove('playing');
+            } else {
+                audio.play().catch(e => {
+                    console.log('Audio play failed:', e);
+                    audioStatus.textContent = 'Click to allow audio playback';
+                });
+                playButton.innerHTML = '<i>⏸</i>';
+                audioStatus.textContent = 'Playing Radhe Radhe...';
+                document.querySelector('.audio-controls').classList.add('playing');
+            }
+            isPlaying = !isPlaying;
+        }
+        
+        // Function to show the blessing
+        function showBlessing() {
+            const userName = document.getElementById('userName').value.trim();
+            
+            if (userName === '') {
+                alert('Please enter your name to receive the divine blessing.');
+                return;
+            }
+            
+            // Hide welcome screen and show result screen
+            document.getElementById('welcomeScreen').style.display = 'none';
+            document.getElementById('resultScreen').style.display = 'block';
+            
+            // Select a random thought from the Gita
+            const randomThought = gitaThoughts[Math.floor(Math.random() * gitaThoughts.length)];
+            
+            // Create personalized blessing
+            const blessing = `Dear ${userName}, ${randomThought}`;
+            
+            // Display the blessing with typing animation
+            const blessingElement = document.getElementById('blessingText');
+            blessingElement.textContent = '';
+            
+            let i = 0;
+            const typing = setInterval(() => {
+                if (i < blessing.length) {
+                    blessingElement.textContent += blessing.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(typing);
+                }
+            }, 50);
+            
+            // Scroll to top of result screen
+            window.scrollTo(0, 0);
+        }
+        
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const input = document.getElementById('userName');
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    showBlessing();
+                }
+            });
+            
+            // Handle audio events
+            audio.addEventListener('ended', function() {
+                isPlaying = false;
+                playButton.innerHTML = '<i>▶</i>';
+                audioStatus.textContent = 'Play Radhe Radhe sound';
+                document.querySelector('.audio-controls').classList.remove('playing');
+            });
+            
+            // Handle audio loading errors
+            audio.addEventListener('error', function() {
+                audioStatus.textContent = 'Audio not available. Please try again later.';
+            });
+        });
+    </script>
+</body>
+</html>
